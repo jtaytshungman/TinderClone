@@ -13,5 +13,4 @@ pod 'Firebase/Auth'
 pod 'Firebase/Storage’
 pod ‘SideMenu’
 
-
 end
