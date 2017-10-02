@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '94F2E69583876A02A3C5BC2AECBF84AD'
-               BlueprintName = 'Pods-TinderClone'
+               BlueprintIdentifier = '09893B54F014B79BCD0FC6EB2DC1636C'
+               BlueprintName = 'SideMenu'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'Pods-TinderClone.framework'>
+               BuildableName = 'SideMenu.framework'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
