@@ -20,15 +20,65 @@ class EditProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        // AESTHETICS
         imageTapGestureHandler()
-        profilePicDisplay()
+        ProfilePicDisplay.profileBounds(image: profileImage, vc: self)
         descTextViewAppear()
+        
+        // LOADING
+        loadUserInforHandler()
+
+        
         
     }
     
-    func loadProfileImageHandler(urlString : String) {
-        
+    func loadUserInforHandler() {
+        guard let currentUserUID = Auth.auth().currentUser?.uid else { return }
+        Database.database().reference().child("users").child(currentUserUID).observeSingleEvent(of: .value, with: { (snapshot) in
+            if let dictionary = snapshot.value as? [String: Any] {
+                
+                if let profilePicURL = dictionary["userImageURL"] as? String {
+                    guard let url = URL(string : profilePicURL) else {
+                        return
+                    }
+                    
+                    let session = URLSession.shared
+                    let task = session.dataTask(with: url) { (data, response, error) in
+                        if let error = error {
+                            print ("Error : \(error.localizedDescription)")
+                            return
+                        }
+                        if let data = data {
+                            //self.pokemonImageView.image = UIImage(data: data)
+                            DispatchQueue.main.async {
+                                self.profileImage.image = UIImage(data: data)
+                            }
+                        }
+                    }
+                    task.resume()
+                }
+                
+                if
+                    let gender = dictionary["gender"] as? String,
+                    let age = dictionary["age"] as? String,
+                    let desc = dictionary["userDesc"] as? String {
+                    
+                    self.genderTextField.placeholder = gender
+                    self.ageTextField.placeholder = age
+                    self.descTextView.text = desc
+                }
+            }
+        }, withCancel: nil)
     }
+    
+    //    func loadOtherInfoHandler() {
+    //        guard let currentUserUID = Auth.auth().currentUser?.uid else { return }
+    //        Database.database().reference().child("users").child(currentUserUID).observeSingleEvent(of: .value, with: { (snapshot) in
+    //            if let dictionary = snapshot.value as? [String : Any] {
+    //
+    //            }
+    //        }, withCancel: nil)
+    //    }
     
     @IBAction func saveButtonTapped(_ sender: Any) {
         saveProfileHandler()
@@ -45,8 +95,9 @@ class EditProfileViewController: UIViewController {
     
 }
 
+// MARK : Buttons Functions
 extension EditProfileViewController {
-
+    
     func cancelHandler () {
         let cancelAlert = UIAlertController(title: "Cancel Message", message: "Your information will be gone if you didn't save. Are you sure you want to cancel?", preferredStyle: .alert)
         let cancel = UIAlertAction(title: "Cancel", style: .destructive, handler: nil)
@@ -60,12 +111,12 @@ extension EditProfileViewController {
     }
     
     func saveProfileHandler() {
-        guard let uid = Auth.auth().currentUser?.uid else { return }
+        guard let currentUserUID = Auth.auth().currentUser?.uid else { return }
         guard let gender = genderTextField.text else { return }
         guard let age = ageTextField.text else { return }
         guard let userDesc = descTextView.text else { return }
         
-        FirebaseDataHandler.uploadDataToDatabaseWithUID(uid: uid, values: ["gender" : gender, "age" : age, "userDesc" : userDesc])
+        FirebaseDataHandler.uploadDataToDatabaseWithUID(uid: currentUserUID, values: ["gender" : gender, "age" : age, "userDesc" : userDesc])
         
     }
     
@@ -95,7 +146,7 @@ extension EditProfileViewController : UIImagePickerControllerDelegate,UINavigati
         // edited image
         if let editedImage = info["UIImagePickerControllerEditedImage"] as? UIImage {
             selectedImageFromPicker = editedImage
-        // original image
+            // original image
         } else if let oriImage = info["UIImagePickerControllerOriginalImage"] as? UIImage {
             selectedImageFromPicker = oriImage
         }
@@ -108,7 +159,7 @@ extension EditProfileViewController : UIImagePickerControllerDelegate,UINavigati
     }
     
     @objc func uploadImageHandler() {
-        guard let uid = Auth.auth().currentUser?.uid else { return }
+        guard let currentUserUID = Auth.auth().currentUser?.uid else { return }
         guard let proImage = profileImage.image else { return }
         let imageName = NSUUID().uuidString
         let storageRef = Storage.storage().reference().child("UserProfileImage").child("\(imageName).jpg")
@@ -123,7 +174,7 @@ extension EditProfileViewController : UIImagePickerControllerDelegate,UINavigati
                 
                 if let profileImageURL = metadata?.downloadURL()?.absoluteString {
                     let values = ["userImageURL" : profileImageURL]
-                    FirebaseDataHandler.uploadDataToDatabaseWithUID(uid: uid, values: values)
+                    FirebaseDataHandler.uploadDataToDatabaseWithUID(uid: currentUserUID, values: values)
                 }
             }
         }
@@ -133,16 +184,10 @@ extension EditProfileViewController : UIImagePickerControllerDelegate,UINavigati
         dismiss(animated: true, completion: nil)
     }
     
-    
 }
 
+// MARK : Aesthetics for this VC
 extension EditProfileViewController {
-    func profilePicDisplay () {
-        self.profileImage.layer.cornerRadius = self.profileImage.frame.size.width / 2
-        self.profileImage.clipsToBounds = true
-        self.profileImage.layer.borderWidth = CGFloat(3.0)
-        self.profileImage.layer.borderColor = UIColor.white.cgColor
-    }
     func descTextViewAppear () {
         self.descTextView.layer.cornerRadius = self.descTextView.frame.size.width / 10
     }

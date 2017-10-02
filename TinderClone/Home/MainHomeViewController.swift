@@ -38,7 +38,7 @@ extension MainHomeViewController {
         // retrieving user's name to know that they are signed in
         guard let uid = Auth.auth().currentUser?.uid else { return }
         Database.database().reference().child("users").child(uid).observeSingleEvent(of: .value, with: { (snapshot) in
-            if let dictionary = snapshot.value as? [String: AnyObject] {
+            if let dictionary = snapshot.value as? [String: Any] {
                 var userName = dictionary["name"] as? String
                 self.title = userName
             }

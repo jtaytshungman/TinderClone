@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		562F60F4AEF8BA4A7638DAEC /* Pods_TinderClone.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D50AEB7236549BB6D666B48 /* Pods_TinderClone.framework */; };
+		E3506C3E1F829F49006AEFC9 /* ProfileImageAestheticsFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3506C3D1F829F49006AEFC9 /* ProfileImageAestheticsFunction.swift */; };
 		E39CA2EF1F8272A500A8AD0D /* UploadDataToFirebaseFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39CA2EE1F8272A500A8AD0D /* UploadDataToFirebaseFunction.swift */; };
 		E3B46B141F8212DC0073CA49 /* ViewProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3B46B131F8212DC0073CA49 /* ViewProfileViewController.swift */; };
 		E3B46B161F8212EA0073CA49 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3B46B151F8212EA0073CA49 /* EditProfileViewController.swift */; };
@@ -29,6 +30,7 @@
 /* Begin PBXFileReference section */
 		2D50AEB7236549BB6D666B48 /* Pods_TinderClone.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TinderClone.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0E3A4D180DAB6A6BEF888AE /* Pods-TinderClone.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TinderClone.release.xcconfig"; path = "Pods/Target Support Files/Pods-TinderClone/Pods-TinderClone.release.xcconfig"; sourceTree = "<group>"; };
+		E3506C3D1F829F49006AEFC9 /* ProfileImageAestheticsFunction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProfileImageAestheticsFunction.swift; path = "TinderClone/Utility Functions/ProfileImageAestheticsFunction.swift"; sourceTree = SOURCE_ROOT; };
 		E39CA2EE1F8272A500A8AD0D /* UploadDataToFirebaseFunction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UploadDataToFirebaseFunction.swift; path = "TinderClone/Utility Functions/UploadDataToFirebaseFunction.swift"; sourceTree = SOURCE_ROOT; };
 		E3B46B131F8212DC0073CA49 /* ViewProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewProfileViewController.swift; sourceTree = "<group>"; };
 		E3B46B151F8212EA0073CA49 /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
@@ -145,6 +147,7 @@
 			children = (
 				E3F769081F81DB9D009C2AB1 /* PromptHandler.swift */,
 				E39CA2EE1F8272A500A8AD0D /* UploadDataToFirebaseFunction.swift */,
+				E3506C3D1F829F49006AEFC9 /* ProfileImageAestheticsFunction.swift */,
 			);
 			path = "Utility Functions";
 			sourceTree = "<group>";
@@ -300,6 +303,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E3506C3E1F829F49006AEFC9 /* ProfileImageAestheticsFunction.swift in Sources */,
 				E3B46B161F8212EA0073CA49 /* EditProfileViewController.swift in Sources */,
 				E3B46B191F8219340073CA49 /* MatchedListViewController.swift in Sources */,
 				E3F769091F81DB9D009C2AB1 /* PromptHandler.swift in Sources */,
