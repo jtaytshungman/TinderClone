@@ -11,6 +11,7 @@
 		E3B46B141F8212DC0073CA49 /* ViewProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3B46B131F8212DC0073CA49 /* ViewProfileViewController.swift */; };
 		E3B46B161F8212EA0073CA49 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3B46B151F8212EA0073CA49 /* EditProfileViewController.swift */; };
 		E3B46B191F8219340073CA49 /* MatchedListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3B46B181F8219340073CA49 /* MatchedListViewController.swift */; };
+		E3B46B1D1F822E4D0073CA49 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3B46B1C1F822E4D0073CA49 /* User.swift */; };
 		E3ECFD381F81F1E2008B474F /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3ECFD371F81F1E2008B474F /* SideMenuViewController.swift */; };
 		E3F768ED1F81C9FF009C2AB1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F768EC1F81C9FF009C2AB1 /* AppDelegate.swift */; };
 		E3F768F41F81C9FF009C2AB1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E3F768F31F81C9FF009C2AB1 /* Assets.xcassets */; };
@@ -30,6 +31,7 @@
 		E3B46B131F8212DC0073CA49 /* ViewProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewProfileViewController.swift; sourceTree = "<group>"; };
 		E3B46B151F8212EA0073CA49 /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		E3B46B181F8219340073CA49 /* MatchedListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchedListViewController.swift; sourceTree = "<group>"; };
+		E3B46B1C1F822E4D0073CA49 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		E3ECFD371F81F1E2008B474F /* SideMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
 		E3F768E91F81C9FF009C2AB1 /* TinderClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TinderClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3F768EC1F81C9FF009C2AB1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -80,9 +82,16 @@
 			children = (
 				E3B46B151F8212EA0073CA49 /* EditProfileViewController.swift */,
 				E3B46B131F8212DC0073CA49 /* ViewProfileViewController.swift */,
-				E3B46B181F8219340073CA49 /* MatchedListViewController.swift */,
 			);
 			path = Profile;
+			sourceTree = "<group>";
+		};
+		E3B46B1B1F822E350073CA49 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E3B46B1C1F822E4D0073CA49 /* User.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		E3F768E01F81C9FF009C2AB1 = {
@@ -108,6 +117,7 @@
 			children = (
 				E3F768EC1F81C9FF009C2AB1 /* AppDelegate.swift */,
 				E3F768F51F81C9FF009C2AB1 /* LaunchScreen.storyboard */,
+				E3B46B1B1F822E350073CA49 /* Model */,
 				E3F769041F81D15D009C2AB1 /* Auth */,
 				E3F7690D1F81DC16009C2AB1 /* Home */,
 				E3F7690A1F81DBA1009C2AB1 /* Utility Functions */,
@@ -141,6 +151,7 @@
 			children = (
 				E3F7690B1F81DC12009C2AB1 /* Home.storyboard */,
 				E3F7690E1F81DC69009C2AB1 /* MainHomeViewController.swift */,
+				E3B46B181F8219340073CA49 /* MatchedListViewController.swift */,
 				E3ECFD371F81F1E2008B474F /* SideMenuViewController.swift */,
 				E3B46B171F8212EF0073CA49 /* Profile */,
 			);
@@ -227,6 +238,7 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-TinderClone/Pods-TinderClone-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Eureka/Eureka.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/SideMenu/SideMenu.framework",
@@ -235,6 +247,7 @@
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Eureka.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SideMenu.framework",
@@ -292,6 +305,7 @@
 				E3F7690F1F81DC69009C2AB1 /* MainHomeViewController.swift in Sources */,
 				E3F768ED1F81C9FF009C2AB1 /* AppDelegate.swift in Sources */,
 				E3F769031F81D158009C2AB1 /* SignUpViewController.swift in Sources */,
+				E3B46B1D1F822E4D0073CA49 /* User.swift in Sources */,
 				E3B46B141F8212DC0073CA49 /* ViewProfileViewController.swift in Sources */,
 				E3ECFD381F81F1E2008B474F /* SideMenuViewController.swift in Sources */,
 				E3F769011F81D148009C2AB1 /* SignInViewController.swift in Sources */,

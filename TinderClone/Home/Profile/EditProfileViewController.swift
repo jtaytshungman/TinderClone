@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseAuth
 
 class EditProfileViewController: UIViewController {
 
@@ -15,6 +17,11 @@ class EditProfileViewController: UIViewController {
         
     }
 
+    
+    @IBAction func saveButtonTapped(_ sender: Any) {
+        
+    }
+    
     @IBAction func cancelButtonTapped(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }

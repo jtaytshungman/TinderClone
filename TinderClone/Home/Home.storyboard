@@ -179,7 +179,11 @@
                                                 <action selector="cancelButtonTapped:" destination="QGw-D0-Wg2" id="j5m-ds-djB"/>
                                             </connections>
                                         </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" title="Save" id="x2g-s3-4la"/>
+                                        <barButtonItem key="rightBarButtonItem" title="Save" id="x2g-s3-4la">
+                                            <connections>
+                                                <action selector="saveButtonTapped:" destination="QGw-D0-Wg2" id="evM-vg-7Sy"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>

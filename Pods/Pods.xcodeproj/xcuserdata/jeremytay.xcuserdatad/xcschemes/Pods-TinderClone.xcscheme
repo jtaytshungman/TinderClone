@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "94F2E69583876A02A3C5BC2AECBF84AD"
+               BlueprintIdentifier = "375307E21A085DD7CB0065940B3A56E1"
                BuildableName = "Pods_TinderClone.framework"
                BlueprintName = "Pods-TinderClone"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -47,7 +47,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "94F2E69583876A02A3C5BC2AECBF84AD"
+            BlueprintIdentifier = "375307E21A085DD7CB0065940B3A56E1"
             BuildableName = "Pods_TinderClone.framework"
             BlueprintName = "Pods-TinderClone"
             ReferencedContainer = "container:Pods.xcodeproj">
