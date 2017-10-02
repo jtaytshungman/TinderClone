@@ -7,29 +7,51 @@
 //
 
 import UIKit
+import SideMenu
 
 class MainHomeViewController: UIViewController {
-
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        self.title = "Home"
+        sideMenuHandler() // handling sidemenu api
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @IBAction func dislikeButtonTapped(_ sender: Any) {
+        dislikeButtonHandler()
     }
-    */
+    
+    @IBAction func likeButtonTapped(_ sender: Any) {
+        likeButtonHandler()
+    }
+    
+}
 
+extension MainHomeViewController {
+    func sideMenuHandler () {
+        // Define the menus
+        let menuLeftNavigationController = UISideMenuNavigationController(rootViewController: SideMenuViewController())
+        menuLeftNavigationController.leftSide = true
+        SideMenuManager.menuLeftNavigationController = menuLeftNavigationController
+        
+        let menuRightNavigationController = UISideMenuNavigationController(rootViewController: SideMenuViewController())
+        SideMenuManager.menuRightNavigationController = menuRightNavigationController
+        
+        guard let navigation = UIViewController().navigationController?.navigationBar else { return }
+        SideMenuManager.menuAddPanGestureToPresent(toView: navigation)
+        SideMenuManager.menuAddScreenEdgePanGesturesToPresent(toView: navigation)
+        
+        present(SideMenuManager.menuLeftNavigationController!, animated: true, completion: nil)
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func dislikeButtonHandler() {
+        
+    }
+    
+    func likeButtonHandler() {
+        
+    }
 }

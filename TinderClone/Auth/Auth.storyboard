@@ -13,7 +13,7 @@
         <!--Sign In View Controller-->
         <scene sceneID="YIb-Oa-lCX">
             <objects>
-                <viewController id="BeL-7p-hmQ" customClass="SignInViewController" customModule="TinderClone" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SignInViewController" id="BeL-7p-hmQ" customClass="SignInViewController" customModule="TinderClone" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Gxh-N4-zF9">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -103,7 +103,7 @@
         <!--Sign Up View Controller-->
         <scene sceneID="eiO-Jd-lH2">
             <objects>
-                <viewController id="pOY-0e-BHo" customClass="SignUpViewController" customModule="TinderClone" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SignUpViewController" id="pOY-0e-BHo" customClass="SignUpViewController" customModule="TinderClone" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ih3-jM-0yG">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

@@ -11,6 +11,9 @@ pod ‘Firebase/Core’
 pod ‘Firebase/Database’
 pod 'Firebase/Auth'
 pod 'Firebase/Storage’
-pod ‘SideMenu’
+
+source 'https://github.com/CocoaPods/Specs.git'
+use_frameworks!
+pod 'SideMenu'
 
 end

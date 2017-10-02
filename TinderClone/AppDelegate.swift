@@ -49,12 +49,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             window = UIWindow(frame: UIScreen.main.bounds)
             window?.makeKeyAndVisible()
             let storyboard = UIStoryboard(name: "Home", bundle: nil)
-            guard let vc = storyboard.instantiateViewController(withIdentifier: "MainHomeViewController") as? MainHomeViewController else {return}
+            guard let vc = storyboard.instantiateViewController(withIdentifier: "MainHomeNavigationController") as? UINavigationController else {return}
             window?.rootViewController = vc
         } else {
             window = UIWindow(frame: UIScreen.main.bounds)
             window?.makeKeyAndVisible()
-            window?.rootViewController = UINavigationController(rootViewController: SignInViewController())
+            window?.rootViewController = UINavigationController(rootViewController: MainHomeViewController())
         }
     }
 

@@ -53,13 +53,12 @@ class SignInViewController: UIViewController {
     }
     
     func correctSignInHandler(){
+        
         let home = UIStoryboard(name: "Home", bundle: nil)
         
-        guard let vc = home.instantiateViewController(withIdentifier: "MainHomeViewController") as? MainHomeViewController else {
+        guard let vc = home.instantiateViewController(withIdentifier: "MainHomeNavigationController") as? UINavigationController else {
             return print("Error--------------------------Correct SignIn Handler")
         }
-        
-        dismiss(animated: true, completion: nil)
         present(vc, animated: true, completion: nil)
     }
 
