@@ -12,4 +12,8 @@ import UIKit
 class User : NSObject {
     var name : String?
     var email : String?
+    var userImageURL : String?
+    var age : String?
+    var gender : String?
+    var userDesc : String?
 }

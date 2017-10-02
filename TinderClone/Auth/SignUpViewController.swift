@@ -46,21 +46,20 @@ class SignUpViewController: UIViewController {
             
             // what to do when error
             if let error = error {
-                print(error.localizedDescription)
+                PromptHandler.showPrompt(title: "Warning", message: "\(error.localizedDescription)", in: self)
             }
             
-            guard let uid = fireUser?.uid else {
-                return
-            }
+            
             
             // Successful Users
+            guard let uid = fireUser?.uid else { return }
             let ref = Database.database().reference(fromURL: "https://tinderclone-5541e.firebaseio.com/")
             let usersReference = ref.child("users").child(uid)
             let values = ["name" : name, "email" : email]
             
             usersReference.updateChildValues(values, withCompletionBlock: { (err, ref) in
                 if err != nil {
-                    print(err?.localizedDescription)
+                    print(err?.localizedDescription as Any)
                 }
                 self.toSignInVC()
                 return

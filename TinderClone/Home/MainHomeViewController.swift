@@ -39,10 +39,10 @@ extension MainHomeViewController {
         guard let uid = Auth.auth().currentUser?.uid else { return }
         Database.database().reference().child("users").child(uid).observeSingleEvent(of: .value, with: { (snapshot) in
             if let dictionary = snapshot.value as? [String: AnyObject] {
-                self.title = dictionary["name"] as? String
+                var userName = dictionary["name"] as? String
+                self.title = userName
             }
         }, withCancel: nil)
-        
     }
     
     func fetchUsers() {
