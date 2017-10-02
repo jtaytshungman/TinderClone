@@ -18,7 +18,7 @@ class SideMenuViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Menu"
-        ProfilePicDisplay.profileBounds(image: menuProfileImage, vc: self)
+        ProfilePicDisplay.profileBounds(image: menuProfileImage)
         loadProfileImageHandler()
     }
     
@@ -57,6 +57,7 @@ class SideMenuViewController: UIViewController {
     func logoutHandler(){
         let auth = UIStoryboard(name: "Auth", bundle: nil)
         guard let vc = auth.instantiateViewController(withIdentifier: "SignInViewController") as? SignInViewController else { return }
+        
         present(vc, animated: true, completion: nil)
     }
     

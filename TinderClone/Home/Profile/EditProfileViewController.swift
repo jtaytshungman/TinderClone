@@ -12,24 +12,72 @@ import FirebaseAuth
 
 class EditProfileViewController: UIViewController {
     
-    @IBOutlet weak var profileImage: UIImageView!
+    @IBOutlet weak var profilePictureImageView: UIImageView!
+    
     @IBOutlet weak var ageTextField: UITextField!
     @IBOutlet weak var genderTextField: UITextField!
+    @IBOutlet weak var nameTextField: UITextField!
+    
     @IBOutlet weak var descTextView: UITextView!
+    
+    @IBOutlet weak var uploadImageButton: UIButton!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // AESTHETICS
         imageTapGestureHandler()
-        ProfilePicDisplay.profileBounds(image: profileImage, vc: self)
-        descTextViewAppear()
+        ProfilePicDisplay.profileBounds(image: profilePictureImageView)
+        descBoxDisplay.descTextViewAppear(textView: descTextView)
+        buttonDisplay()
         
         // LOADING
         loadUserInforHandler()
+    }
+    
+    func buttonDisplay () {
+        uploadImageButton.layer.cornerRadius = 5
+    }
+    
+    @IBAction func saveButtonTapped(_ sender: Any) {
+        saveProfileHandler()
+        dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func uploadButtonTapped(_ sender: Any) {
+        uploadImageHandler()
+    }
+    
+    
+    @IBAction func cancelButtonTapped(_ sender: Any) {
+        cancelHandler()
+    }
+    
+}
 
+extension EditProfileViewController {
+    
+    func cancelHandler () {
+        let cancelAlert = UIAlertController(title: "Cancel Message", message: "Your information will be gone if you didn't save. Are you sure you want to cancel?", preferredStyle: .alert)
+        let cancel = UIAlertAction(title: "Cancel", style: .destructive, handler: nil)
+        let confirm = UIAlertAction(title: "Confirm", style: .default) { (action) in
+            self.dismiss(animated: true, completion: nil)
+        }
         
+        cancelAlert.addAction(cancel)
+        cancelAlert.addAction(confirm)
+        present(cancelAlert, animated: true, completion: nil)
+    }
+    
+    func saveProfileHandler() {
+        guard let currentUserUID = Auth.auth().currentUser?.uid else { return }
+        guard let gender = genderTextField.text else { return }
+        guard let age = ageTextField.text else { return }
+        guard let userDesc = descTextView.text else { return }
+        guard let name = nameTextField.text else { return }
         
+        FirebaseDataHandler.uploadDataToDatabaseWithUID(uid: currentUserUID, values: ["gender" : gender, "age" : age, "userDesc" : userDesc, "name" : name])
+        uploadImageHandler()
     }
     
     func loadUserInforHandler() {
@@ -51,7 +99,7 @@ class EditProfileViewController: UIViewController {
                         if let data = data {
                             //self.pokemonImageView.image = UIImage(data: data)
                             DispatchQueue.main.async {
-                                self.profileImage.image = UIImage(data: data)
+                                self.profilePictureImageView.image = UIImage(data: data)
                             }
                         }
                     }
@@ -61,63 +109,16 @@ class EditProfileViewController: UIViewController {
                 if
                     let gender = dictionary["gender"] as? String,
                     let age = dictionary["age"] as? String,
+                    let name = dictionary["name"] as? String,
                     let desc = dictionary["userDesc"] as? String {
                     
-                    self.genderTextField.placeholder = gender
-                    self.ageTextField.placeholder = age
+                    self.genderTextField.text = gender
+                    self.ageTextField.text = age
                     self.descTextView.text = desc
+                    self.nameTextField.text = name
                 }
             }
         }, withCancel: nil)
-    }
-    
-    //    func loadOtherInfoHandler() {
-    //        guard let currentUserUID = Auth.auth().currentUser?.uid else { return }
-    //        Database.database().reference().child("users").child(currentUserUID).observeSingleEvent(of: .value, with: { (snapshot) in
-    //            if let dictionary = snapshot.value as? [String : Any] {
-    //
-    //            }
-    //        }, withCancel: nil)
-    //    }
-    
-    @IBAction func saveButtonTapped(_ sender: Any) {
-        saveProfileHandler()
-    }
-    
-    @IBAction func uploadButtonTapped(_ sender: Any) {
-        uploadImageHandler()
-    }
-    
-    
-    @IBAction func cancelButtonTapped(_ sender: Any) {
-        cancelHandler()
-    }
-    
-}
-
-// MARK : Buttons Functions
-extension EditProfileViewController {
-    
-    func cancelHandler () {
-        let cancelAlert = UIAlertController(title: "Cancel Message", message: "Your information will be gone if you didn't save. Are you sure you want to cancel?", preferredStyle: .alert)
-        let cancel = UIAlertAction(title: "Cancel", style: .destructive, handler: nil)
-        let confirm = UIAlertAction(title: "Confirm", style: .default) { (action) in
-            self.dismiss(animated: true, completion: nil)
-        }
-        
-        cancelAlert.addAction(cancel)
-        cancelAlert.addAction(confirm)
-        present(cancelAlert, animated: true, completion: nil)
-    }
-    
-    func saveProfileHandler() {
-        guard let currentUserUID = Auth.auth().currentUser?.uid else { return }
-        guard let gender = genderTextField.text else { return }
-        guard let age = ageTextField.text else { return }
-        guard let userDesc = descTextView.text else { return }
-        
-        FirebaseDataHandler.uploadDataToDatabaseWithUID(uid: currentUserUID, values: ["gender" : gender, "age" : age, "userDesc" : userDesc])
-        
     }
     
 }
@@ -126,8 +127,8 @@ extension EditProfileViewController {
 extension EditProfileViewController : UIImagePickerControllerDelegate,UINavigationControllerDelegate {
     
     func imageTapGestureHandler () {
-        profileImage.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(enableImagePickerHandler)))
-        profileImage.isUserInteractionEnabled = true
+        profilePictureImageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(enableImagePickerHandler)))
+        profilePictureImageView.isUserInteractionEnabled = true
     }
     
     func enableImagePickerHandler() {
@@ -152,7 +153,7 @@ extension EditProfileViewController : UIImagePickerControllerDelegate,UINavigati
         }
         // Selected Image
         if let selectedImage = selectedImageFromPicker {
-            profileImage.image = selectedImage
+            profilePictureImageView.image = selectedImage
         }
         
         dismiss(animated: true, completion: nil)
@@ -160,7 +161,7 @@ extension EditProfileViewController : UIImagePickerControllerDelegate,UINavigati
     
     @objc func uploadImageHandler() {
         guard let currentUserUID = Auth.auth().currentUser?.uid else { return }
-        guard let proImage = profileImage.image else { return }
+        guard let proImage = profilePictureImageView.image else { return }
         let imageName = NSUUID().uuidString
         let storageRef = Storage.storage().reference().child("UserProfileImage").child("\(imageName).jpg")
         
@@ -184,11 +185,4 @@ extension EditProfileViewController : UIImagePickerControllerDelegate,UINavigati
         dismiss(animated: true, completion: nil)
     }
     
-}
-
-// MARK : Aesthetics for this VC
-extension EditProfileViewController {
-    func descTextViewAppear () {
-        self.descTextView.layer.cornerRadius = self.descTextView.frame.size.width / 10
-    }
 }

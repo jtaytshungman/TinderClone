@@ -17,10 +17,13 @@ class ViewProfileViewController: UIViewController {
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var genderLabel: UILabel!
     @IBOutlet weak var ageLabel: UILabel!
+    @IBOutlet weak var userDescTextView: UITextView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         loadUserInfoHandler()
+        descBoxDisplay.descTextViewAppear(textView: userDescTextView)
+        ProfilePicDisplay.profileBounds(image: profilePictureImageView)
     }
 
     @IBAction func doneButtonTapped(_ sender: Any) {
@@ -50,7 +53,7 @@ class ViewProfileViewController: UIViewController {
                         if let data = data {
                             //self.pokemonImageView.image = UIImage(data: data)
                             DispatchQueue.main.async {
-                                self.profileImage.image = UIImage(data: data)
+                                self.profilePictureImageView.image = UIImage(data: data)
                             }
                         }
                     }
@@ -64,8 +67,9 @@ class ViewProfileViewController: UIViewController {
                     let desc = dictionary["userDesc"] as? String {
                     
                     self.genderLabel.text = gender
-                    self.ageLabel.text.placeholder = age
+                    self.ageLabel.text = "\(age) years old"
                     self.userNameLabel.text = name
+                    self.userDescTextView.text = desc
                     
                 }
             }

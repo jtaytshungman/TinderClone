@@ -16,4 +16,7 @@ source 'https://github.com/CocoaPods/Specs.git'
 use_frameworks!
 pod 'SideMenu'
 
+use_frameworks!
+pod "Koloda"
+
 end
