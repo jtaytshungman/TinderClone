@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		562F60F4AEF8BA4A7638DAEC /* Pods_TinderClone.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D50AEB7236549BB6D666B48 /* Pods_TinderClone.framework */; };
+		E3B46B141F8212DC0073CA49 /* ViewProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3B46B131F8212DC0073CA49 /* ViewProfileViewController.swift */; };
+		E3B46B161F8212EA0073CA49 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3B46B151F8212EA0073CA49 /* EditProfileViewController.swift */; };
+		E3ECFD381F81F1E2008B474F /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3ECFD371F81F1E2008B474F /* SideMenuViewController.swift */; };
 		E3F768ED1F81C9FF009C2AB1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F768EC1F81C9FF009C2AB1 /* AppDelegate.swift */; };
 		E3F768F41F81C9FF009C2AB1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E3F768F31F81C9FF009C2AB1 /* Assets.xcassets */; };
 		E3F768F71F81C9FF009C2AB1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3F768F51F81C9FF009C2AB1 /* LaunchScreen.storyboard */; };
@@ -23,6 +26,9 @@
 /* Begin PBXFileReference section */
 		2D50AEB7236549BB6D666B48 /* Pods_TinderClone.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TinderClone.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0E3A4D180DAB6A6BEF888AE /* Pods-TinderClone.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TinderClone.release.xcconfig"; path = "Pods/Target Support Files/Pods-TinderClone/Pods-TinderClone.release.xcconfig"; sourceTree = "<group>"; };
+		E3B46B131F8212DC0073CA49 /* ViewProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewProfileViewController.swift; sourceTree = "<group>"; };
+		E3B46B151F8212EA0073CA49 /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
+		E3ECFD371F81F1E2008B474F /* SideMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
 		E3F768E91F81C9FF009C2AB1 /* TinderClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TinderClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3F768EC1F81C9FF009C2AB1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E3F768F31F81C9FF009C2AB1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -65,6 +71,15 @@
 				D0E3A4D180DAB6A6BEF888AE /* Pods-TinderClone.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		E3B46B171F8212EF0073CA49 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				E3B46B151F8212EA0073CA49 /* EditProfileViewController.swift */,
+				E3B46B131F8212DC0073CA49 /* ViewProfileViewController.swift */,
+			);
+			path = Profile;
 			sourceTree = "<group>";
 		};
 		E3F768E01F81C9FF009C2AB1 = {
@@ -123,6 +138,8 @@
 			children = (
 				E3F7690B1F81DC12009C2AB1 /* Home.storyboard */,
 				E3F7690E1F81DC69009C2AB1 /* MainHomeViewController.swift */,
+				E3ECFD371F81F1E2008B474F /* SideMenuViewController.swift */,
+				E3B46B171F8212EF0073CA49 /* Profile */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -209,6 +226,7 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-TinderClone/Pods-TinderClone-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/SideMenu/SideMenu.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
@@ -216,6 +234,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SideMenu.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
@@ -264,10 +283,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E3B46B161F8212EA0073CA49 /* EditProfileViewController.swift in Sources */,
 				E3F769091F81DB9D009C2AB1 /* PromptHandler.swift in Sources */,
 				E3F7690F1F81DC69009C2AB1 /* MainHomeViewController.swift in Sources */,
 				E3F768ED1F81C9FF009C2AB1 /* AppDelegate.swift in Sources */,
 				E3F769031F81D158009C2AB1 /* SignUpViewController.swift in Sources */,
+				E3B46B141F8212DC0073CA49 /* ViewProfileViewController.swift in Sources */,
+				E3ECFD381F81F1E2008B474F /* SideMenuViewController.swift in Sources */,
 				E3F769011F81D148009C2AB1 /* SignInViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

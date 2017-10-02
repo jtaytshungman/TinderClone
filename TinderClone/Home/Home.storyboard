@@ -18,24 +18,201 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3eZ-UO-AbS">
-                                <rect key="frame" x="245" y="583" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6u9-uC-bQD">
-                                <rect key="frame" x="71" y="583" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="T5R-oX-oCG">
+                                <rect key="frame" x="72" y="557" width="230" height="80"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="caI-Gc-cvC">
+                                        <rect key="frame" x="0.0" y="0.0" width="230" height="80"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6u9-uC-bQD">
+                                                <rect key="frame" x="0.0" y="0.0" width="90" height="80"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="89.5" id="NJd-fZ-bvf"/>
+                                                    <constraint firstAttribute="height" constant="80" id="l7g-VK-dR8"/>
+                                                </constraints>
+                                                <state key="normal" image="CrossIcon"/>
+                                                <connections>
+                                                    <action selector="dislikeButtonTapped:" destination="Sqn-ET-PBq" eventType="touchUpInside" id="uVK-yK-PGy"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3eZ-UO-AbS">
+                                                <rect key="frame" x="140" y="0.0" width="90" height="80"/>
+                                                <state key="normal" image="LikeIcon"/>
+                                                <connections>
+                                                    <action selector="likeButtonTapped:" destination="Sqn-ET-PBq" eventType="touchUpInside" id="C8x-nE-ewf"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="6u9-uC-bQD" firstAttribute="top" secondItem="caI-Gc-cvC" secondAttribute="top" id="HY6-1h-pjc"/>
+                                            <constraint firstItem="3eZ-UO-AbS" firstAttribute="top" secondItem="caI-Gc-cvC" secondAttribute="top" id="ImY-va-i6B"/>
+                                            <constraint firstItem="3eZ-UO-AbS" firstAttribute="leading" secondItem="6u9-uC-bQD" secondAttribute="trailing" constant="50" id="Myc-Es-mjB"/>
+                                            <constraint firstAttribute="trailing" secondItem="3eZ-UO-AbS" secondAttribute="trailing" id="aUF-bK-FCl"/>
+                                            <constraint firstItem="3eZ-UO-AbS" firstAttribute="leading" secondItem="6u9-uC-bQD" secondAttribute="trailing" constant="50" id="bq5-QX-YEq"/>
+                                            <constraint firstItem="6u9-uC-bQD" firstAttribute="leading" secondItem="caI-Gc-cvC" secondAttribute="leading" id="cvr-Cw-JBN"/>
+                                            <constraint firstAttribute="bottom" secondItem="6u9-uC-bQD" secondAttribute="bottom" id="dlf-xd-VcC"/>
+                                            <constraint firstItem="3eZ-UO-AbS" firstAttribute="width" secondItem="6u9-uC-bQD" secondAttribute="width" id="hlW-yX-RAv"/>
+                                            <constraint firstItem="3eZ-UO-AbS" firstAttribute="height" secondItem="6u9-uC-bQD" secondAttribute="height" id="uGK-CP-SlP"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="T5R-oX-oCG" firstAttribute="top" secondItem="SCy-bD-R9c" secondAttribute="top" constant="493" id="Ucx-EB-bak"/>
+                            <constraint firstItem="T5R-oX-oCG" firstAttribute="centerX" secondItem="VBQ-gI-1Ck" secondAttribute="centerX" id="qwg-6E-tb9"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="SCy-bD-R9c"/>
                     </view>
+                    <navigationItem key="navigationItem" id="Yiy-5v-qz9">
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="menubutton" id="p57-kw-8Dg">
+                            <color key="tintColor" red="1" green="0.3843688455" blue="0.36351955520000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <segue destination="d1K-fM-N7m" kind="presentation" id="HbY-IA-HqY"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zbc-QL-sJo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-31" y="114"/>
+            <point key="canvasLocation" x="1010.4" y="113.79310344827587"/>
+        </scene>
+        <!--Side Menu Navigation Controller-->
+        <scene sceneID="cJm-j7-b9y">
+            <objects>
+                <navigationController navigationBarHidden="YES" id="d1K-fM-N7m" customClass="UISideMenuNavigationController" customModule="SideMenu" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="fVa-Nu-Hp9">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="leftSide" value="YES"/>
+                        <userDefinedRuntimeAttribute type="number" keyPath="menuWidth">
+                            <real key="value" value="200"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <segue destination="4ts-FM-akc" kind="relationship" relationship="rootViewController" id="hEd-Yc-bCF"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2K3-Zo-hAd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1730.4000000000001" y="113.79310344827587"/>
+        </scene>
+        <!--Side Menu View Controller-->
+        <scene sceneID="Rdt-3U-Cuv">
+            <objects>
+                <viewController storyboardIdentifier="SideMenuViewController" id="4ts-FM-akc" customClass="SideMenuViewController" customModule="TinderClone" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="4OC-kk-7Tv">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Ba-o3-R9a">
+                                <rect key="frame" x="16" y="260" width="167" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                <state key="normal" title="View Profile">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="profileButtonTapped:" destination="4ts-FM-akc" eventType="touchUpInside" id="DFJ-QI-M4g"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vHc-p9-xSa">
+                                <rect key="frame" x="16" y="304" width="167" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                <state key="normal" title="Edit Profile">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="profileButtonTapped:" destination="4ts-FM-akc" eventType="touchUpInside" id="2sm-8I-zLY"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dRL-kl-qcz">
+                                <rect key="frame" x="10" y="611" width="173" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                <state key="normal" title="Logout">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="logoutButtonTapped:" destination="4ts-FM-akc" eventType="touchUpInside" id="hw0-n6-QU4"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EDA-8t-F7L">
+                                <rect key="frame" x="16" y="348" width="167" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                <state key="normal" title="Matches">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="matchButtonTapped:" destination="4ts-FM-akc" eventType="touchUpInside" id="aaj-5L-edb"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="0.3843688455" blue="0.36351955520000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="qth-JY-C9A"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="LgJ-nY-SKw"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Xqg-nR-Kk3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2484" y="113.79310344827587"/>
+        </scene>
+        <!--Edit Profile View Controller-->
+        <scene sceneID="BEz-Xm-JCu">
+            <objects>
+                <viewController storyboardIdentifier="EditProfileViewController" id="QGw-D0-Wg2" customClass="EditProfileViewController" customModule="TinderClone" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Cu5-tA-ckz">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <viewLayoutGuide key="safeArea" id="30h-g9-dAX"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uRP-6M-a61" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3255" y="114"/>
+        </scene>
+        <!--View Profile View Controller-->
+        <scene sceneID="3Mv-fW-ybt">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5Wx-hq-Ir9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController storyboardIdentifier="ViewProfileViewController" id="Xe0-RH-d7U" customClass="ViewProfileViewController" customModule="TinderClone" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="V9g-hr-vDo">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <viewLayoutGuide key="safeArea" id="pcM-fA-Oi4"/>
+                    </view>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="3906" y="114"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="ldE-EP-bQ0">
+            <objects>
+                <navigationController storyboardIdentifier="MainHomeNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="gSB-5I-VXh" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Jre-tO-oWl">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Sqn-ET-PBq" kind="relationship" relationship="rootViewController" id="Ocf-gr-f8b"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nek-FU-GRa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="135" y="114"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="CrossIcon" width="100" height="100"/>
+        <image name="LikeIcon" width="100" height="100"/>
+        <image name="menubutton" width="32" height="32"/>
+    </resources>
 </document>
