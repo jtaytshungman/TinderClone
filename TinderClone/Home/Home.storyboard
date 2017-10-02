@@ -115,7 +115,7 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="profileButtonTapped:" destination="4ts-FM-akc" eventType="touchUpInside" id="DFJ-QI-M4g"/>
+                                    <action selector="viewProfileButtonTapped:" destination="4ts-FM-akc" eventType="touchUpInside" id="DFJ-QI-M4g"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vHc-p9-xSa">
@@ -126,7 +126,7 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="profileButtonTapped:" destination="4ts-FM-akc" eventType="touchUpInside" id="2sm-8I-zLY"/>
+                                    <action selector="editProfileButtonTapped:" destination="4ts-FM-akc" eventType="touchUpInside" id="Zhm-X9-PSQ"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dRL-kl-qcz">
@@ -168,28 +168,116 @@
                     <view key="view" contentMode="scaleToFill" id="Cu5-tA-ckz">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bLa-Kv-k63">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem title="Edit Profile" id="zPV-Ay-IoG">
+                                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="PoB-tE-OG9">
+                                            <connections>
+                                                <action selector="cancelButtonTapped:" destination="QGw-D0-Wg2" id="j5m-ds-djB"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" title="Save" id="x2g-s3-4la"/>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="30h-g9-dAX"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uRP-6M-a61" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3255" y="114"/>
+            <point key="canvasLocation" x="1815" y="808"/>
         </scene>
         <!--View Profile View Controller-->
         <scene sceneID="3Mv-fW-ybt">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="5Wx-hq-Ir9" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="ViewProfileViewController" id="Xe0-RH-d7U" customClass="ViewProfileViewController" customModule="TinderClone" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="V9g-hr-vDo">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pxh-5y-pdq">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem title="Profile" id="4qv-V4-HEG">
+                                        <barButtonItem key="leftBarButtonItem" title="Done" id="3lP-Gs-ReG">
+                                            <connections>
+                                                <action selector="doneButtonTapped:" destination="Xe0-RH-d7U" id="icb-UM-yBb"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="pcM-fA-Oi4"/>
                     </view>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5Wx-hq-Ir9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3906" y="114"/>
+            <point key="canvasLocation" x="2465" y="808"/>
+        </scene>
+        <!--Matched List View Controller-->
+        <scene sceneID="T45-pp-plB">
+            <objects>
+                <viewController storyboardIdentifier="MatchedListViewController" id="v8E-hK-5EQ" customClass="MatchedListViewController" customModule="TinderClone" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="mdI-y8-YJB">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="YWi-QC-WwB">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <subviews>
+                                    <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ybj-pD-fpc">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                        <items>
+                                            <navigationItem title="Matched" id="u1u-XE-ApO">
+                                                <barButtonItem key="leftBarButtonItem" title="Done" id="gnn-sb-gvR">
+                                                    <connections>
+                                                        <action selector="doneButtonTapped:" destination="v8E-hK-5EQ" id="NbB-cP-b37"/>
+                                                    </connections>
+                                                </barButtonItem>
+                                            </navigationItem>
+                                        </items>
+                                    </navigationBar>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="tZo-M7-6eK">
+                                        <rect key="frame" x="0.0" y="44" width="375" height="603"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <prototypes>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="hzB-bw-x7z">
+                                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="hzB-bw-x7z" id="ale-21-cWc">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </tableViewCellContentView>
+                                            </tableViewCell>
+                                        </prototypes>
+                                    </tableView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="YWi-QC-WwB" firstAttribute="trailing" secondItem="5Xg-JZ-1fH" secondAttribute="trailing" id="DhH-Gy-saK"/>
+                            <constraint firstItem="YWi-QC-WwB" firstAttribute="leading" secondItem="5Xg-JZ-1fH" secondAttribute="leading" id="fQP-VQ-J7R"/>
+                            <constraint firstItem="5Xg-JZ-1fH" firstAttribute="bottom" secondItem="YWi-QC-WwB" secondAttribute="bottom" id="n9b-2Y-DMV"/>
+                            <constraint firstItem="YWi-QC-WwB" firstAttribute="top" secondItem="5Xg-JZ-1fH" secondAttribute="top" id="oDa-ar-WZv"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="5Xg-JZ-1fH"/>
+                    </view>
+                    <connections>
+                        <outlet property="matchedTableView" destination="tZo-M7-6eK" id="DhJ-BP-mKD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5Ar-V4-Gxa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3153" y="808"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ldE-EP-bQ0">
@@ -207,7 +295,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nek-FU-GRa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="135" y="114"/>
+            <point key="canvasLocation" x="234" y="114"/>
         </scene>
     </scenes>
     <resources>

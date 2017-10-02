@@ -10,6 +10,7 @@
 		562F60F4AEF8BA4A7638DAEC /* Pods_TinderClone.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D50AEB7236549BB6D666B48 /* Pods_TinderClone.framework */; };
 		E3B46B141F8212DC0073CA49 /* ViewProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3B46B131F8212DC0073CA49 /* ViewProfileViewController.swift */; };
 		E3B46B161F8212EA0073CA49 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3B46B151F8212EA0073CA49 /* EditProfileViewController.swift */; };
+		E3B46B191F8219340073CA49 /* MatchedListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3B46B181F8219340073CA49 /* MatchedListViewController.swift */; };
 		E3ECFD381F81F1E2008B474F /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3ECFD371F81F1E2008B474F /* SideMenuViewController.swift */; };
 		E3F768ED1F81C9FF009C2AB1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F768EC1F81C9FF009C2AB1 /* AppDelegate.swift */; };
 		E3F768F41F81C9FF009C2AB1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E3F768F31F81C9FF009C2AB1 /* Assets.xcassets */; };
@@ -28,6 +29,7 @@
 		D0E3A4D180DAB6A6BEF888AE /* Pods-TinderClone.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TinderClone.release.xcconfig"; path = "Pods/Target Support Files/Pods-TinderClone/Pods-TinderClone.release.xcconfig"; sourceTree = "<group>"; };
 		E3B46B131F8212DC0073CA49 /* ViewProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewProfileViewController.swift; sourceTree = "<group>"; };
 		E3B46B151F8212EA0073CA49 /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
+		E3B46B181F8219340073CA49 /* MatchedListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchedListViewController.swift; sourceTree = "<group>"; };
 		E3ECFD371F81F1E2008B474F /* SideMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
 		E3F768E91F81C9FF009C2AB1 /* TinderClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TinderClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3F768EC1F81C9FF009C2AB1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -78,6 +80,7 @@
 			children = (
 				E3B46B151F8212EA0073CA49 /* EditProfileViewController.swift */,
 				E3B46B131F8212DC0073CA49 /* ViewProfileViewController.swift */,
+				E3B46B181F8219340073CA49 /* MatchedListViewController.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -284,6 +287,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E3B46B161F8212EA0073CA49 /* EditProfileViewController.swift in Sources */,
+				E3B46B191F8219340073CA49 /* MatchedListViewController.swift in Sources */,
 				E3F769091F81DB9D009C2AB1 /* PromptHandler.swift in Sources */,
 				E3F7690F1F81DC69009C2AB1 /* MainHomeViewController.swift in Sources */,
 				E3F768ED1F81C9FF009C2AB1 /* AppDelegate.swift in Sources */,

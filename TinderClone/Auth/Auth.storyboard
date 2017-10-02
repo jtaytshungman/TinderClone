@@ -111,20 +111,26 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="k6X-zQ-U6i">
                                 <rect key="frame" x="30" y="251" width="315" height="165"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hkm-4d-xFi">
-                                        <rect key="frame" x="0.0" y="0.0" width="315" height="51.5"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4ZO-gS-S9T">
+                                        <rect key="frame" x="0.0" y="0.0" width="315" height="37.5"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email Login" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hkm-4d-xFi">
+                                        <rect key="frame" x="0.0" y="42.5" width="315" height="37.5"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ira-YY-7tc">
-                                        <rect key="frame" x="0.0" y="56.5" width="315" height="52"/>
+                                        <rect key="frame" x="0.0" y="85" width="315" height="37.5"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirm Password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TZx-4t-7oL">
-                                        <rect key="frame" x="0.0" y="113.5" width="315" height="51.5"/>
+                                        <rect key="frame" x="0.0" y="127.5" width="315" height="37.5"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
@@ -163,6 +169,7 @@
                     <connections>
                         <outlet property="confirmPasswordTextField" destination="TZx-4t-7oL" id="PeO-O5-LpI"/>
                         <outlet property="emailTextField" destination="hkm-4d-xFi" id="5ev-ki-Joo"/>
+                        <outlet property="nameTextField" destination="4ZO-gS-S9T" id="SMH-Rf-THz"/>
                         <outlet property="passwordTextField" destination="Ira-YY-7tc" id="MdI-Pc-MnV"/>
                     </connections>
                 </viewController>
