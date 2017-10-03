@@ -10,27 +10,22 @@ import UIKit
 import SideMenu
 import FirebaseAuth
 import Firebase
-import Koloda
-
+import DMSwipeCards
 
 class MainHomeViewController: UIViewController {
     
     var users : [User] = []
+    var userNames : [String] = []
+    var userAge : [String] = []
+    var userImageURL : [String] = []
     
-    @IBOutlet weak var kolodaProfileImage: UIImageView!
-    @IBOutlet weak var kolodaView: KolodaView! {
-        didSet {
-            kolodaView.dataSource = self
-            kolodaView.delegate = self
-        }
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad ()
         self.title = "Tinder"
         
+        swipingView()
         sideMenuHandler() // handling sidemenu api
-        fetchUsers()
     }
     
     @IBAction func dislikeButtonTapped(_ sender: Any) {
@@ -40,25 +35,9 @@ class MainHomeViewController: UIViewController {
     @IBAction func likeButtonTapped(_ sender: Any) {
         likeButtonHandler()
     }
-    
 }
 
 extension MainHomeViewController {
-    
-    func fetchUsers() {
-        Database.database().reference().child("users").observe(.childAdded, with: { (snapshot) in
-            
-            if let dictionary = snapshot.value as? [String : Any] {
-                let user = User()
-                user.setValuesForKeys(dictionary)
-                self.users.append(user)
-                print("Fetch Successful")
-                
-                
-            }
-            
-        }, withCancel: nil)
-    }
     
     func dislikeButtonHandler() {
         print("PASS")
@@ -68,7 +47,19 @@ extension MainHomeViewController {
         print("LIKE")
     }
     
-    
+    func fetchUser () {
+        
+        Database.database().reference().child("users").observe(.childAdded, with: { (snapshot) in
+            
+            if let dictionary = snapshot.value as? [String : Any] {
+                let user = User()
+                user.setValuesForKeys(dictionary)
+                self.users.append(user)
+            }
+            
+        }, withCancel: nil)
+        
+    }
     
     func sideMenuHandler () {
         // Define the menus
@@ -86,55 +77,67 @@ extension MainHomeViewController {
         present(SideMenuManager.menuLeftNavigationController!, animated: true, completion: nil)
         dismiss(animated: true, completion: nil)
     }
-}
-
-extension MainHomeViewController : KolodaViewDelegate {
     
-}
-
-extension MainHomeViewController : KolodaViewDataSource {
-    func koloda(_ koloda: KolodaView, viewForCardAt index: Int) -> UIView {
-        if let userProfileImageUrlStr = users[index].userImageURL {
-            kolodaProfileImage.loadImageUsingCacheWithURLString(urlString: userProfileImageUrlStr)
+    func swipingView () {
+        let viewGenerator: (String, CGRect) -> (UIView) = { (element: String, frame: CGRect) -> (UIView) in
+            // return a UIView here
+            
+            let container = UIView(frame: CGRect(x: 30, y: 20, width: frame.width - 60, height: frame.height - 40))
+            let label = UILabel(frame: container.bounds)
+            label.text = element
+            label.textAlignment = .center
+            label.backgroundColor = UIColor.white
+            label.font = UIFont.systemFont(ofSize: 48, weight: UIFontWeightThin)
+            label.clipsToBounds = true
+            label.layer.cornerRadius = 16
+            container.addSubview(label)
+            
+            container.layer.shadowRadius = 4
+            container.layer.shadowOpacity = 1.0
+            container.layer.shadowColor = UIColor(white: 0.9, alpha: 1.0).cgColor
+            container.layer.shadowOffset = CGSize(width: 0, height: 0)
+            container.layer.shouldRasterize = true
+            container.layer.rasterizationScale = UIScreen.main.scale
+            
+            return container
+            
         }
-        return kolodaView
-    }
+        
+        let overlayGenerator: (SwipeMode, CGRect) -> (UIView) = { (mode: SwipeMode, frame: CGRect) -> (UIView) in
+            // return a UIView here
+            
+            let label = UILabel()
+            return label
+            
+        }
+        
+        let frame = CGRect(x: 0, y: 80, width: self.view.frame.width, height: self.view.frame.height - 200)
+        
+        let swipeView = DMSwipeCardsView<String>(frame: frame, viewGenerator: viewGenerator, overlayGenerator: overlayGenerator)
+        
+        swipeView.delegate = self
     
-    func kolodaNumberOfCards(_ koloda: KolodaView) -> Int {
-        return users.count
-    }
-    
-    func kolodaSpeedThatCardShouldDrag(_ koloda: KolodaView) -> DragSpeed {
-        return .default
     }
 }
 
-//extension MainHomeViewController : KolodaViewDelegate {
-//    func kolodaDidRunOutOfCards(_ koloda: KolodaView) {
-//        kolodaView.reloadData()
-//    }
-//}
-//
-//extension MainHomeViewController : KolodaViewDataSource {
-//
-//    func koloda(_ koloda: KolodaView, viewForCardAt index: Int) -> UIView {
-//        let profileImage = UIImageView()
-//        if let viewingUserProfileURL = users[index].userImageURL {
-//            profileImage.loadImageUsingCacheWithURLString(urlString: viewingUserProfileURL)
-//        }
-//
-//        return profileImage
-//    }
-//
-//    func kolodaNumberOfCards(_ koloda: KolodaView) -> Int {
-//        return users.count
-//    }
-//
-//    func kolodaSpeedThatCardShouldDrag(_ koloda: KolodaView) -> DragSpeed {
-//        return .fast
-//    }
-//}
 
+extension MainHomeViewController : DMSwipeCardsViewDelegate {
+    func swipedLeft(_ object: Any) {
+        print("Swiped")
+    }
+    
+    func swipedRight(_ object: Any) {
+        print("Swiped")
+    }
+    
+    func cardTapped(_ object: Any) {
+        print("Swiped")
+    }
+    
+    func reachedEndOfStack() {
+        print("Swiped")
+    }
 
+}
 
 

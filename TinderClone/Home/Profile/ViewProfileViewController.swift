@@ -12,6 +12,7 @@ import FirebaseAuth
 
 class ViewProfileViewController: UIViewController {
 
+    @IBOutlet weak var profileNavBar: UINavigationBar!
     @IBOutlet weak var profilePictureImageView: UIImageView!
     
     @IBOutlet weak var userNameLabel: UILabel!
@@ -24,6 +25,8 @@ class ViewProfileViewController: UIViewController {
         loadUserInfoHandler()
         descBoxDisplay.descTextViewAppear(textView: userDescTextView)
         ProfilePicDisplay.profileBounds(image: profilePictureImageView)
+        
+        profileNavBar.backgroundColor = UIColor.clear
     }
 
     @IBAction func doneButtonTapped(_ sender: Any) {

@@ -49,7 +49,7 @@ extension SideMenuViewController {
         let logoutAlert = UIAlertController(title: "Logout", message: "Are you sure you want to logout?", preferredStyle: .alert)
         let cancel = UIAlertAction(title: "Cancel", style: .destructive, handler: nil)
         let logout = UIAlertAction(title: "Log Out", style: .default) { (action) in
-            self.dismiss(animated: true, completion: nil)
+            self.logoutHandler()
         }
         
         logoutAlert.addAction(cancel)
@@ -60,13 +60,7 @@ extension SideMenuViewController {
     func logoutHandler(){
         let auth = UIStoryboard(name: "Auth", bundle: nil)
         guard let vc = auth.instantiateViewController(withIdentifier: "SignInViewController") as? SignInViewController else { return }
-        
-        UserDefaults.standard.set(false, forKey: "isUserLoggedIn")
-        UserDefaults.standard.synchronize()
-        
-        guard let appDel : AppDelegate = UIApplication.shared.delegate as! AppDelegate else { return }
-        
-        appDel.window?.rootViewController = SignInViewController()
+        present(vc, animated: true, completion: nil)
     }
     
     func loadProfileImageHandler() {

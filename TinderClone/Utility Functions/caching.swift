@@ -6,6 +6,10 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseDatabase
+
+
 
 extension UIImageView {
     func loadImageUsingCacheWithURLString(urlString : String) {
@@ -24,3 +28,4 @@ extension UIImageView {
         task.resume()
     }
 }
+

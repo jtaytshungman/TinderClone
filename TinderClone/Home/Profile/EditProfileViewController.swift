@@ -12,6 +12,9 @@ import FirebaseAuth
 
 class EditProfileViewController: UIViewController {
     
+    
+    @IBOutlet weak var editProfileNavBar: UINavigationBar!
+    
     @IBOutlet weak var profilePictureImageView: UIImageView!
     
     @IBOutlet weak var ageTextField: UITextField!
@@ -33,6 +36,8 @@ class EditProfileViewController: UIViewController {
         
         // LOADING
         loadUserInforHandler()
+        
+        editProfileNavBar.backgroundColor = UIColor.clear
     }
     
     func buttonDisplay () {
@@ -86,24 +91,7 @@ extension EditProfileViewController {
             if let dictionary = snapshot.value as? [String: Any] {
                 
                 if let profilePicURL = dictionary["userImageURL"] as? String {
-                    guard let url = URL(string : profilePicURL) else {
-                        return
-                    }
-                    
-                    let session = URLSession.shared
-                    let task = session.dataTask(with: url) { (data, response, error) in
-                        if let error = error {
-                            print ("Error : \(error.localizedDescription)")
-                            return
-                        }
-                        if let data = data {
-                            //self.pokemonImageView.image = UIImage(data: data)
-                            DispatchQueue.main.async {
-                                self.profilePictureImageView.image = UIImage(data: data)
-                            }
-                        }
-                    }
-                    task.resume()
+                    self.profilePictureImageView.loadImageUsingCacheWithURLString(urlString: profilePicURL)
                 }
                 
                 if
