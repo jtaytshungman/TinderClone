@@ -58,9 +58,15 @@ extension SideMenuViewController {
     }
     
     func logoutHandler(){
-        let auth = UIStoryboard(name: "Auth", bundle: nil)
-        guard let vc = auth.instantiateViewController(withIdentifier: "SignInViewController") as? SignInViewController else { return }
-        present(vc, animated: true, completion: nil)
+        
+        do  {
+            try Auth.auth().signOut()
+            let auth = UIStoryboard(name: "Auth", bundle: nil)
+            guard let vc = auth.instantiateViewController(withIdentifier: "SignInViewController") as? UIViewController else { return }
+            present(vc, animated: true, completion: nil)
+        } catch let error as NSError {
+            print(error.localizedDescription)
+        }
     }
     
     func loadProfileImageHandler() {

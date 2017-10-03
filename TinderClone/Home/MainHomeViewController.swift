@@ -15,15 +15,12 @@ import DMSwipeCards
 class MainHomeViewController: UIViewController {
     
     var users : [User] = []
-    var userNames : [String] = []
-    var userAge : [String] = []
-    var userImageURL : [String] = []
-    
+    var testUsers = ["Max", "Jeremy", "Alex", "Wei Liang", "RichMan", "Jacky", "Audrey", "Jeremy"]
     
     override func viewDidLoad() {
         super.viewDidLoad ()
         self.title = "Tinder"
-        
+        fetchUser()
         swipingView()
         sideMenuHandler() // handling sidemenu api
     }
@@ -48,13 +45,12 @@ extension MainHomeViewController {
     }
     
     func fetchUser () {
-        
         Database.database().reference().child("users").observe(.childAdded, with: { (snapshot) in
-            
             if let dictionary = snapshot.value as? [String : Any] {
                 let user = User()
                 user.setValuesForKeys(dictionary)
                 self.users.append(user)
+                print("fetched")
             }
             
         }, withCancel: nil)
@@ -79,6 +75,9 @@ extension MainHomeViewController {
     }
     
     func swipingView () {
+        
+        let frame = CGRect(x: 0, y: 80, width: self.view.frame.width, height: self.view.frame.height - 200)
+        
         let viewGenerator: (String, CGRect) -> (UIView) = { (element: String, frame: CGRect) -> (UIView) in
             // return a UIView here
             
@@ -100,26 +99,22 @@ extension MainHomeViewController {
             container.layer.rasterizationScale = UIScreen.main.scale
             
             return container
-            
         }
         
         let overlayGenerator: (SwipeMode, CGRect) -> (UIView) = { (mode: SwipeMode, frame: CGRect) -> (UIView) in
             // return a UIView here
-            
             let label = UILabel()
             return label
-            
         }
-        
-        let frame = CGRect(x: 0, y: 80, width: self.view.frame.width, height: self.view.frame.height - 200)
         
         let swipeView = DMSwipeCardsView<String>(frame: frame, viewGenerator: viewGenerator, overlayGenerator: overlayGenerator)
         
         swipeView.delegate = self
-    
+        swipeView.addCards(testUsers)
+        
     }
+    
 }
-
 
 extension MainHomeViewController : DMSwipeCardsViewDelegate {
     func swipedLeft(_ object: Any) {
@@ -131,11 +126,14 @@ extension MainHomeViewController : DMSwipeCardsViewDelegate {
     }
     
     func cardTapped(_ object: Any) {
-        print("Swiped")
+        guard let vc = storyboard?.instantiateViewController(withIdentifier: "SelectedUserDetailsViewController") as? SelectedUserDetailsViewController else {
+            return
+        }
+        present(vc, animated: true, completion: nil)
     }
     
     func reachedEndOfStack() {
-        print("Swiped")
+        PromptHandler.showPrompt(title: "End of Users", message: "You have reached the end", in: self)
     }
 
 }

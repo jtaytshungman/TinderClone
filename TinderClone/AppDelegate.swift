@@ -19,7 +19,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         FirebaseApp.configure()
-        checkIfLoggedIn()
+//        checkIfLoggedIn()
+        
+        let auth = Auth.auth()
+        auth.addStateDidChangeListener { [weak self] (_, user) in
+            if let user = user {
+                // user is already logged in
+                let storyboard = UIStoryboard(name: "Home", bundle: nil)
+                guard let mainHomeVC = storyboard.instantiateViewController(withIdentifier: "MainHomeNavigationController") as? UINavigationController else {return}
+            } else {
+                // user is not logged in
+                let storyboard = UIStoryboard(name: "Auth", bundle: nil)
+                guard let mainHomeVC = storyboard.instantiateViewController(withIdentifier: "AuthNavigationController") as? UINavigationController else {return}
+            }
+        }
+        
         return true
     }
 
@@ -58,7 +72,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             window?.rootViewController = UINavigationController(rootViewController: MainHomeViewController())
         }
     }
-
-
 }
 

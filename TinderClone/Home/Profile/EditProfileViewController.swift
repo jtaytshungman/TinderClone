@@ -28,6 +28,7 @@ class EditProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         // AESTHETICS
         imageTapGestureHandler()
         ProfilePicDisplay.profileBounds(image: profilePictureImageView)
@@ -52,7 +53,6 @@ class EditProfileViewController: UIViewController {
     @IBAction func uploadButtonTapped(_ sender: Any) {
         uploadImageHandler()
     }
-    
     
     @IBAction func cancelButtonTapped(_ sender: Any) {
         cancelHandler()

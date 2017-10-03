@@ -21,7 +21,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="T5R-oX-oCG">
-                                <rect key="frame" x="72" y="557" width="230" height="80"/>
+                                <rect key="frame" x="72" y="574" width="230" height="80"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="caI-Gc-cvC">
                                         <rect key="frame" x="0.0" y="0.0" width="230" height="80"/>
@@ -62,7 +62,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="T5R-oX-oCG" firstAttribute="top" secondItem="SCy-bD-R9c" secondAttribute="top" constant="493" id="Ucx-EB-bak"/>
+                            <constraint firstItem="T5R-oX-oCG" firstAttribute="top" secondItem="SCy-bD-R9c" secondAttribute="top" constant="510" id="Ucx-EB-bak"/>
                             <constraint firstItem="T5R-oX-oCG" firstAttribute="centerX" secondItem="VBQ-gI-1Ck" secondAttribute="centerX" id="qwg-6E-tb9"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="SCy-bD-R9c"/>
@@ -483,7 +483,6 @@
         <!--Swiping View Controller-->
         <scene sceneID="IOb-7f-0Or">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="MfS-aI-dOA" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="SwipingViewController" id="BXd-48-rA4" customClass="SwipingViewController" customModule="TinderClone" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ELF-Yq-Oks">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -529,6 +528,7 @@
                         <outlet property="userNameLabel" destination="qIz-jb-4JT" id="u16-g9-Lyf"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MfS-aI-dOA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="996" y="859"/>
         </scene>

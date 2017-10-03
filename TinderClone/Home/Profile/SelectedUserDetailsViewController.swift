@@ -7,9 +7,10 @@
 //
 
 import UIKit
+import FirebaseDatabase
+import Firebase
 
 class SelectedUserDetailsViewController: UIViewController {
-    
     
     
     @IBOutlet weak var profileImageView: UIImageView!
@@ -22,20 +23,5 @@ class SelectedUserDetailsViewController: UIViewController {
         
     }
     
-    func fetchUser () {
-        
-        Database.database().reference().child("users").observe(.childAdded, with: { (snapshot) in
-            
-            if let dictionary = snapshot.value as? [String : Any] {
-                let user = User()
-                user.setValuesForKeys(dictionary)
-                self.users.append(user)
-            }
-            
-        }, withCancel: nil)
-        
-    }
-    
-    
-    
+
 }

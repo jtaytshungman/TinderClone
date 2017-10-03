@@ -180,7 +180,7 @@
         <!--Navigation Controller-->
         <scene sceneID="1qd-JS-O8Q">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="W4D-On-Sh3" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="AuthNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="W4D-On-Sh3" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="TFp-Qm-FPh">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
