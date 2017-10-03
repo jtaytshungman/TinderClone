@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		562F60F4AEF8BA4A7638DAEC /* Pods_TinderClone.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D50AEB7236549BB6D666B48 /* Pods_TinderClone.framework */; };
 		E3506C3E1F829F49006AEFC9 /* Aesthetics.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3506C3D1F829F49006AEFC9 /* Aesthetics.swift */; };
+		E365E4021F839D6600231CD3 /* MatchedProfiles.swift in Sources */ = {isa = PBXBuildFile; fileRef = E365E4011F839D6600231CD3 /* MatchedProfiles.swift */; };
 		E36AEF171F8367F100102321 /* SwipingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E36AEF161F8367F100102321 /* SwipingViewController.swift */; };
 		E39CA2EF1F8272A500A8AD0D /* UploadDataToFirebaseFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39CA2EE1F8272A500A8AD0D /* UploadDataToFirebaseFunction.swift */; };
 		E3B032BF1F834AD90042255B /* caching.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3B032BE1F834AD90042255B /* caching.swift */; };
@@ -34,6 +35,7 @@
 		2D50AEB7236549BB6D666B48 /* Pods_TinderClone.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TinderClone.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0E3A4D180DAB6A6BEF888AE /* Pods-TinderClone.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TinderClone.release.xcconfig"; path = "Pods/Target Support Files/Pods-TinderClone/Pods-TinderClone.release.xcconfig"; sourceTree = "<group>"; };
 		E3506C3D1F829F49006AEFC9 /* Aesthetics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Aesthetics.swift; path = "TinderClone/Utility Functions/Aesthetics.swift"; sourceTree = SOURCE_ROOT; };
+		E365E4011F839D6600231CD3 /* MatchedProfiles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchedProfiles.swift; sourceTree = "<group>"; };
 		E36AEF161F8367F100102321 /* SwipingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipingViewController.swift; sourceTree = "<group>"; };
 		E39CA2EE1F8272A500A8AD0D /* UploadDataToFirebaseFunction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UploadDataToFirebaseFunction.swift; path = "TinderClone/Utility Functions/UploadDataToFirebaseFunction.swift"; sourceTree = SOURCE_ROOT; };
 		E3B032BE1F834AD90042255B /* caching.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = caching.swift; sourceTree = "<group>"; };
@@ -101,6 +103,7 @@
 			isa = PBXGroup;
 			children = (
 				E3B46B1C1F822E4D0073CA49 /* User.swift */,
+				E365E4011F839D6600231CD3 /* MatchedProfiles.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -324,6 +327,7 @@
 				E3F768ED1F81C9FF009C2AB1 /* AppDelegate.swift in Sources */,
 				E3B032BF1F834AD90042255B /* caching.swift in Sources */,
 				E3F769031F81D158009C2AB1 /* SignUpViewController.swift in Sources */,
+				E365E4021F839D6600231CD3 /* MatchedProfiles.swift in Sources */,
 				E3B46B1D1F822E4D0073CA49 /* User.swift in Sources */,
 				E36AEF171F8367F100102321 /* SwipingViewController.swift in Sources */,
 				E3B46B141F8212DC0073CA49 /* ViewProfileViewController.swift in Sources */,

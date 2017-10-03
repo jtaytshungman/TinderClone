@@ -10,7 +10,7 @@ import UIKit
 
 class MatchedListViewController: UIViewController {
 
-    var matchedUsers : [String] = []
+    var matchedUsers : [MatchedUsers] = []
     
     @IBOutlet weak var matchedTableView: UITableView! {
         didSet {

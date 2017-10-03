@@ -205,16 +205,23 @@
                                     <constraint firstAttribute="trailing" secondItem="p7b-QL-4Nj" secondAttribute="trailing" id="bFA-Wi-lTc"/>
                                 </constraints>
                             </stackView>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bLa-Kv-k63">
+                            <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bLa-Kv-k63">
                                 <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <color key="barTintColor" red="0.97575706243515015" green="0.38587275147438049" blue="0.36487469077110291" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <textAttributes key="titleTextAttributes">
+                                    <color key="textColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="textShadowColor" red="0.97575706240000004" green="0.3858727515" blue="0.36487469080000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </textAttributes>
                                 <items>
                                     <navigationItem title="Edit Profile" id="zPV-Ay-IoG">
                                         <barButtonItem key="leftBarButtonItem" title="Cancel" id="PoB-tE-OG9">
+                                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <connections>
                                                 <action selector="cancelButtonTapped:" destination="QGw-D0-Wg2" id="j5m-ds-djB"/>
                                             </connections>
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" title="Save" id="x2g-s3-4la">
+                                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <connections>
                                                 <action selector="saveButtonTapped:" destination="QGw-D0-Wg2" id="evM-vg-7Sy"/>
                                             </connections>
@@ -306,11 +313,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pxh-5y-pdq">
+                            <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pxh-5y-pdq">
                                 <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <color key="barTintColor" red="1" green="0.3843688455" blue="0.36351955520000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <items>
                                     <navigationItem title="Profile" id="4qv-V4-HEG">
                                         <barButtonItem key="leftBarButtonItem" title="Done" id="3lP-Gs-ReG">
+                                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <connections>
                                                 <action selector="doneButtonTapped:" destination="Xe0-RH-d7U" id="icb-UM-yBb"/>
                                             </connections>
