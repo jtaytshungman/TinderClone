@@ -58,11 +58,32 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="O7H-Xs-WJ9">
+                                <rect key="frame" x="67.5" y="213.5" width="240" height="240"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="EOb-xC-s1p">
+                                        <rect key="frame" x="20" y="20" width="200" height="200"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="200" id="OEk-HL-kMn"/>
+                                            <constraint firstAttribute="height" constant="200" id="Tad-px-HCU"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="EOb-xC-s1p" firstAttribute="centerY" secondItem="O7H-Xs-WJ9" secondAttribute="centerY" id="1Ns-5a-7dR"/>
+                                    <constraint firstAttribute="height" constant="240" id="gD3-uR-vcs"/>
+                                    <constraint firstAttribute="width" constant="240" id="gNd-Mq-qoV"/>
+                                    <constraint firstItem="EOb-xC-s1p" firstAttribute="centerX" secondItem="O7H-Xs-WJ9" secondAttribute="centerX" id="w2h-87-PmQ"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="T5R-oX-oCG" firstAttribute="top" secondItem="SCy-bD-R9c" secondAttribute="top" constant="493" id="Ucx-EB-bak"/>
+                            <constraint firstItem="O7H-Xs-WJ9" firstAttribute="centerX" secondItem="VBQ-gI-1Ck" secondAttribute="centerX" id="aLM-ao-I6J"/>
                             <constraint firstItem="T5R-oX-oCG" firstAttribute="centerX" secondItem="VBQ-gI-1Ck" secondAttribute="centerX" id="qwg-6E-tb9"/>
+                            <constraint firstItem="O7H-Xs-WJ9" firstAttribute="centerY" secondItem="VBQ-gI-1Ck" secondAttribute="centerY" id="xqC-o5-1A2"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="SCy-bD-R9c"/>
                     </view>
@@ -74,6 +95,10 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="kolodaProfileImage" destination="EOb-xC-s1p" id="5tT-jv-jff"/>
+                        <outlet property="kolodaView" destination="O7H-Xs-WJ9" id="Gua-NB-3Rd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zbc-QL-sJo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
