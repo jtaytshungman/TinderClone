@@ -10,6 +10,7 @@ import UIKit
 import SideMenu
 import FirebaseAuth
 import Firebase
+import Koloda
 
 
 class MainHomeViewController: UIViewController {
@@ -49,11 +50,11 @@ extension MainHomeViewController {
     }
     
     func dislikeButtonHandler() {
-        
+        print("PASS")
     }
     
     func likeButtonHandler() {
-        
+        print("LIKE")
     }
     
     func sideMenuHandler () {
