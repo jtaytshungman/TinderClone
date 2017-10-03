@@ -41,12 +41,15 @@ class SideMenuViewController: UIViewController {
         self.logoutPrompt()
     }
     
-    //MARK: Logout Functions
+}
+
+extension SideMenuViewController {
+    
     func logoutPrompt() {
         let logoutAlert = UIAlertController(title: "Logout", message: "Are you sure you want to logout?", preferredStyle: .alert)
         let cancel = UIAlertAction(title: "Cancel", style: .destructive, handler: nil)
         let logout = UIAlertAction(title: "Log Out", style: .default) { (action) in
-            self.logoutHandler()
+            self.dismiss(animated: true, completion: nil)
         }
         
         logoutAlert.addAction(cancel)
@@ -58,7 +61,12 @@ class SideMenuViewController: UIViewController {
         let auth = UIStoryboard(name: "Auth", bundle: nil)
         guard let vc = auth.instantiateViewController(withIdentifier: "SignInViewController") as? SignInViewController else { return }
         
-        present(vc, animated: true, completion: nil)
+        UserDefaults.standard.set(false, forKey: "isUserLoggedIn")
+        UserDefaults.standard.synchronize()
+        
+        guard let appDel : AppDelegate = UIApplication.shared.delegate as! AppDelegate else { return }
+        
+        appDel.window?.rootViewController = SignInViewController()
     }
     
     func loadProfileImageHandler() {

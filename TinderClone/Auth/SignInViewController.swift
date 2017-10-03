@@ -21,6 +21,7 @@ class SignInViewController: UIViewController {
 
     @IBAction func SignInButtonTapped(_ sender: Any) {
         signInHandler()
+        
     }
     
     func signInHandler(){
